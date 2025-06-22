@@ -15,6 +15,7 @@ st.markdown("""
 """)
 
 uploaded_file = st.file_uploader("📥 اختر صورة (JPG / PNG)", type=["jpg", "jpeg", "png"])
+Image.MAX_IMAGE_PIXELS = None
 
 def is_irrigation_circle(image, circle, min_radius=80, max_radius=300):
     x, y, r = circle
