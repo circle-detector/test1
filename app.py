@@ -1,3 +1,5 @@
+from PIL import Image
+Image.MAX_IMAGE_PIXELS = None
 
 import streamlit as st
 import numpy as np
@@ -60,7 +62,7 @@ def detect_irrigation_circles(image_pil):
 if uploaded_file is not None:
     try:
         image = Image.open(uploaded_file)
-        st.image(image, caption="📷 الصورة الأصلية", use_column_width=True)
+        st.image(image, caption="📷 الصورة الأصلية", use_container_width=True)
         count, result_image = detect_irrigation_circles(image)
         st.image(result_image, caption=f"🟢 عدد دوائر الري المحوري المكتشفة: {count}", use_column_width=True)
         st.success(f"✅ تم اكتشاف {count} دائرة ري محوري.")
